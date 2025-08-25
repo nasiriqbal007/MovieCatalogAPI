@@ -1,0 +1,147 @@
+@MovieCatalogAPI_HostAddress = https://localhost:7137
+
+GET {{MovieCatalogAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
+
+POST {{MovieCatalogAPI_HostAddress}}/user/login
+Content-Type: application/json
+
+{
+    "email": "user@mail.com",
+  "password": "1234567"
+}
+
+###
+
+POST {{MovieCatalogAPI_HostAddress}}/movies
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwidW5pcXVlX25hbWUiOiJ1c2VyMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJqdGkiOiIwNzAxMDRiOC05YWQ1LTQwNzEtODY4Yi1hNTljMzM4NDUwNDEiLCJleHAiOjE3NTU2MDc1MTUsImlzcyI6Ik1vdmllQ2F0YWxvZ0FQSSIsImF1ZCI6Ik1vdmllQ2F0YWxvZ0FQSVVzZXJzIn0.0HEMUSNMUmLZBrW5JujMCwicPxf5Q50KI-9B71GMX84
+Content-Type: application/json
+
+{
+  "title": "Inception",
+  "genre": "Sci-Fi",
+  "releaseYear": 2010,
+  "rating": 8.8
+}
+
+###
+
+POST {{MovieCatalogAPI_HostAddress}}/user/login
+Content-Type: application/json
+
+{
+    "email": "user@mail.com",
+  "password": "123456"
+
+}
+
+###
+
+@movieId=1
+POST {{MovieCatalogAPI_HostAddress}}/review?movieId=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwidW5pcXVlX25hbWUiOiJ1c2VyMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJqdGkiOiIwYzRlZTY0OC00MzQ0LTQ5MmItOWQxZS1kMThiOTdmOGQwZTQiLCJleHAiOjE3NTU2MDk0NjUsImlzcyI6Ik1vdmllQ2F0YWxvZ0FQSSIsImF1ZCI6Ik1vdmllQ2F0YWxvZ0FQSVVzZXJzIn0.MNP3n-SpDdM-XdgmugHvlo5a9vwswARiKPiKMqcQnYQ
+Content-Type: application/json
+
+{
+  "comment":"great movie"
+}
+
+###
+
+POST {{MovieCatalogAPI_HostAddress}}/review?movieId=1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwidW5pcXVlX25hbWUiOiJ1c2VyMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJqdGkiOiIwYzRlZTY0OC00MzQ0LTQ5MmItOWQxZS1kMThiOTdmOGQwZTQiLCJleHAiOjE3NTU2MDk0NjUsImlzcyI6Ik1vdmllQ2F0YWxvZ0FQSSIsImF1ZCI6Ik1vdmllQ2F0YWxvZ0FQSVVzZXJzIn0.MNP3n-SpDdM-XdgmugHvlo5a9vwswARiKPiKMqcQnYQ
+Content-Type: application/json
+
+{
+  "comment":"great movie"
+}
+
+###
+
+POST {{MovieCatalogAPI_HostAddress}}/user/login
+Authorization: {{$apiKey}}
+Content-Type: application/json
+
+{
+  //UserLoginDto
+}
+
+###
+
+POST {{MovieCatalogAPI_HostAddress}}/review?movieId={{movieId}}
+Authorization: {{$apiKey}}
+Content-Type: application/json
+
+{
+  //ReviewCreateDto
+}
+
+###
+
+GET {{MovieCatalogAPI_HostAddress}}/movies
+Authorization: {{$apiKey}}
+
+###
+
+@id=2
+DELETE {{MovieCatalogAPI_HostAddress}}/review/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwidW5pcXVlX25hbWUiOiJ1c2VyMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJqdGkiOiIxMmM5ZTcyMi0zMTkzLTQ4ZWEtODVkYy01ZDVhNjFmZjQyNmIiLCJleHAiOjE3NTU3MzI4ODUsImlzcyI6Ik1vdmllQ2F0YWxvZ0FQSSIsImF1ZCI6Ik1vdmllQ2F0YWxvZ0FQSVVzZXJzIn0.5HQMlBLfMvY7MR-h8DMQMgBYFUz375MN1AYThxQ4_AY
+
+###
+
+GET {{MovieCatalogAPI_HostAddress}}/movies
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwidW5pcXVlX25hbWUiOiJ1c2VyMSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJqdGkiOiIxMmM5ZTcyMi0zMTkzLTQ4ZWEtODVkYy01ZDVhNjFmZjQyNmIiLCJleHAiOjE3NTU3MzI4ODUsImlzcyI6Ik1vdmllQ2F0YWxvZ0FQSSIsImF1ZCI6Ik1vdmllQ2F0YWxvZ0FQSVVzZXJzIn0.5HQMlBLfMvY7MR-h8DMQMgBYFUz375MN1AYThxQ4_AY
+
+###
+
+POST {{MovieCatalogAPI_HostAddress}}/user/login
+Authorization: {{$apiKey}}
+Content-Type: application/json
+
+{
+  //UserLoginDto
+}
+
+###
+
+POST {{MovieCatalogAPI_HostAddress}}/movies/2/like
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwidW5pcXVlX25hbWUiOiJOYXNpciIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJqdGkiOiJiMzcwMDkzMC05YTk0LTQyM2ItODcwMi0wZWMxMmM2ZDAzNWMiLCJleHAiOjE3NTU3NTAwNzEsImlzcyI6Ik1vdmllQ2F0YWxvZ0FQSSIsImF1ZCI6Ik1vdmllQ2F0YWxvZ0FQSVVzZXJzIn0.oxRUEhIqlc46my1LuFn-EfdZ1tvPJdz9qe1nT6GTe_A
+
+###
+
+POST {{MovieCatalogAPI_HostAddress}}/movies/2/favorite
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwidW5pcXVlX25hbWUiOiJOYXNpciIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJqdGkiOiJiMzcwMDkzMC05YTk0LTQyM2ItODcwMi0wZWMxMmM2ZDAzNWMiLCJleHAiOjE3NTU3NTAwNzEsImlzcyI6Ik1vdmllQ2F0YWxvZ0FQSSIsImF1ZCI6Ik1vdmllQ2F0YWxvZ0FQSVVzZXJzIn0.oxRUEhIqlc46my1LuFn-EfdZ1tvPJdz9qe1nT6GTe_A
+
+###
+
+GET {{MovieCatalogAPI_HostAddress}}/user/profile
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzIiwidW5pcXVlX25hbWUiOiJOYXNpciIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IlVzZXIiLCJqdGkiOiJiMzcwMDkzMC05YTk0LTQyM2ItODcwMi0wZWMxMmM2ZDAzNWMiLCJleHAiOjE3NTU3NTAwNzEsImlzcyI6Ik1vdmllQ2F0YWxvZ0FQSSIsImF1ZCI6Ik1vdmllQ2F0YWxvZ0FQSVVzZXJzIn0.oxRUEhIqlc46my1LuFn-EfdZ1tvPJdz9qe1nT6GTe_A
+
+###
+
+POST {{MovieCatalogAPI_HostAddress}}/user/login
+Authorization: {{$apiKey}}
+Content-Type: application/json
+
+{
+  //UserLoginDto
+}
+
+###
+
+POST {{MovieCatalogAPI_HostAddress}}/user/login
+Authorization: {{$apiKey}}
+Content-Type: application/json
+
+{
+  //UserLoginDto
+}
+
+###
+
+GET {{MovieCatalogAPI_HostAddress}}/movies
+Authorization: {{$apiKey}}
+
+###
